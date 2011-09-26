@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+coverage/
+
+# Backup files
+*#*#
+.#*
+*~
+
+# Auto-generated files
+public/stylesheets/*.css
