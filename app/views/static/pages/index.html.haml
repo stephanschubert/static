@@ -8,4 +8,5 @@
       %li
         = link_to t("backend.actions.delete_page"),
           backend_page_path(page),
-          method: :delete
+          method: :delete,
+          confirm: t("backend.actions.confirm_deletion")

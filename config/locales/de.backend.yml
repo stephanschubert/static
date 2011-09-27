@@ -2,3 +2,10 @@ de:
   backend:
     actions:
       create_page: "Neue Seite anlegen"
+
+      delete_page: "Löschen"
+      confirm_deletion: "Ganz sicher?"
+
+      page_created: "Seite wurde angelegt."
+      page_updated: "Seite wurde geändert."
+      page_deleted: "Seite wurde gelöscht."
