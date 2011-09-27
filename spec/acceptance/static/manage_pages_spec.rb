@@ -3,7 +3,7 @@ require 'acceptance/acceptance_helper'
 feature "Manage pages" do
 
   background do
-    @page = F("static/page", title: "A post", body: "The body.")
+    @page = F("static/page", title: "A page", body: "The body.")
   end
 
   scenario "View page" do # --------------------------------
@@ -21,7 +21,7 @@ feature "Manage pages" do
 
     within "form#new_page" do
       fill_in "page_title", with: "A title"
-      fill_in "page_body", with: "The post's body."
+      fill_in "page_body", with: "The page's body."
       submit
     end
 
