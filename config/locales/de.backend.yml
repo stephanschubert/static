@@ -1,0 +1,4 @@
+de:
+  backend:
+    actions:
+      create_page: "Neue Seite anlegen"
