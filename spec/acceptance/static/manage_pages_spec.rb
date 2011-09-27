@@ -7,7 +7,7 @@ feature "Manage pages" do
   end
 
   scenario "View page" do # --------------------------------
-    visit "/static/backend/pages/" + @page.to_param
+    visit backend_page_path(@page)
 
     page.html.should have_tag ".page" do
       with_tag ".title", text: @page.title
@@ -16,7 +16,7 @@ feature "Manage pages" do
   end
 
   scenario "Create page" do # ------------------------------
-    visit "/static/backend/pages"
+    visit backend_pages_path
     click_on t("backend.actions.create_page")
 
     within "form#new_page" do
@@ -37,6 +37,10 @@ feature "Manage pages" do
     end
 
     page.should have_content("backend.messages.page_updated")
+  end
+
+  scenario "Delete page" do # ------------------------------
+    visit backend_pages_path
   end
 
 end
