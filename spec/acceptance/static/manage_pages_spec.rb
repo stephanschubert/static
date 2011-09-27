@@ -39,8 +39,13 @@ feature "Manage pages" do
     page.should have_content("backend.messages.page_updated")
   end
 
-  scenario "Delete page" do # ------------------------------
+  scenario "Delete page", js: true do # --------------------
     visit backend_pages_path
+
+    path = backend_page_path(@page)
+    find("a[data-method='delete'][href$='#{path}']").click
+
+    page.should have_content t("backend.messages.page_deleted")
   end
 
 end

@@ -3,9 +3,10 @@ module Static
     layout "static/backend"
     respond_to :html
 
-    before_filter :find_page, only: %w(edit show update)
+    before_filter :find_page, only: %w(destroy edit show update)
 
     def index
+      @pages = Page.all
     end
 
     def new
@@ -36,6 +37,12 @@ module Static
       else
         # TODO Fail path
       end
+    end
+
+    def destroy
+      @page.destroy
+      flash[:notice] = t("backend.messages.page_deleted")
+      redirect_to backend_pages_path
     end
 
     private # ----------------------------------------------

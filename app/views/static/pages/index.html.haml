@@ -1,3 +1,11 @@
 %nav
   %ol
     %li= link_to t("backend.actions.create_page"), new_backend_page_path
+
+.pages
+  %ol.xoxo
+    - @pages.each do |page|
+      %li
+        = link_to t("backend.actions.delete_page"),
+          backend_page_path(page),
+          method: :delete
