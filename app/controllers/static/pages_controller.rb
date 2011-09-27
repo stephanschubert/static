@@ -3,6 +3,8 @@ module Static
     layout "static/backend"
     respond_to :html
 
+    before_filter :find_page, only: %w(show)
+
     def index
     end
 
@@ -27,6 +29,10 @@ module Static
 
     def incoming_changes
       params[:page]
+    end
+
+    def find_page
+      @page = Page.find params[:id]
     end
 
   end
