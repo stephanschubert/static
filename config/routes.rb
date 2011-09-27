@@ -5,4 +5,6 @@ Static::Engine.routes.draw do
     resources :pages
   end
 
+  get "*slug" => "public#slug"
+
 end
