@@ -15,7 +15,7 @@ feature "Manage pages" do
     end
   end
 
-  scenario "Create new page" do # --------------------------
+  scenario "Create page" do # ------------------------------
     visit "/static/backend/pages"
     click_on t("backend.actions.create_page")
 
@@ -26,6 +26,17 @@ feature "Manage pages" do
     end
 
     page.should have_content t("backend.messages.page_created")
+  end
+
+  scenario "Edit page" do # --------------------------------
+    visit edit_backend_page_path(@page)
+
+    within "form[id^='edit_page']" do
+      fill_in "page_body", with: "Updated content."
+      submit
+    end
+
+    page.should have_content("backend.messages.page_updated")
   end
 
 end
