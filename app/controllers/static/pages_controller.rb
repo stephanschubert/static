@@ -1,5 +1,5 @@
 module Static
-  class PagesController < ApplicationController
+  class PagesController < ProtectedController
     layout "static/backend"
     respond_to :html
 
