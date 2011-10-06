@@ -28,6 +28,7 @@ gem 'thin'
 
 gem 'scss', :require => "scss", :git => 'git@github.com:jazen/scss.git'
 gem 'santas-little-helpers', :git => 'git@github.com:jazen/santas-little-helpers.git'
+gem 'mongoid-plugins', git: 'git://github.com/jazen/mongoid-plugins.git'
 
 group :test, :development do
   gem 'simplecov', '>= 0.4.0', :require => false

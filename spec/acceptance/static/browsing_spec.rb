@@ -9,9 +9,9 @@ feature "Browsing pages" do
   scenario "Browse to page" do # ---------------------------
     visit "/static/a-page"
 
-    page.html.should have_tag ".page" do
-      with_tag ".title", text: @page.title
-      with_tag ".body", text: @page.body
+    page.should have_selector ".page" do |cont|
+      cont.should have_selector ".page-title", content: @page.title
+      cont.should have_selector ".page-body", content: @page.body
     end
   end
 
