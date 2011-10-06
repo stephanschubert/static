@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/jazen/mongoid-plugins.git
+  revision: 9e0c8c5c7a1456d05cec6dcab969b8c9e3a8d900
+  specs:
+    mongoid-plugins (0.0.1)
+
+GIT
   remote: git://github.com/mongoid/mongoid.git
   revision: 86384aec949fc4aba846dd47d88935ccd8fd9461
   specs:
@@ -102,7 +108,7 @@ GIT
 
 GIT
   remote: git@github.com:jazen/santas-little-helpers.git
-  revision: 8d8a36dfcd821051f148f80fb55a8ee5ea0910d7
+  revision: 794cec5eb694c9e10a1a87a07df1f5469e829fea
   specs:
     santas-little-helpers (0.0.1)
 
@@ -239,6 +245,7 @@ DEPENDENCIES
   journey!
   jquery-rails!
   mongoid!
+  mongoid-plugins!
   mongoid-rspec (>= 1.4.1)
   rack (~> 1.3.0)
   rails!
