@@ -1,0 +1,5 @@
+de:
+  static:
+    slug:
+      page_title: "%{title}"
+      meta_description: "%{description}"
