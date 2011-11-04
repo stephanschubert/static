@@ -20,12 +20,25 @@ feature "Manage pages" do
       basic_auth "baktinet", "6bd5069e47fc68f2"
     end
 
+    scenario "View dashboard" do # -------------------------
+      visit backend_pages_path
+
+      within ".pages" do
+        path = edit_backend_page_path(@page)
+        text = @page.title
+        page.should have_selector "a[href$='#{path}']", text: text
+      end
+    end
+
     scenario "View page" do # ------------------------------
       visit backend_page_path(@page)
 
-      page.html.should have_tag ".page" do
-        with_tag ".title", text: @page.title
-        with_tag ".body", text: @page.body
+      within ".page" do
+        page.should have_selector ".page-title", text: @page.title
+
+        within ".page-body" do
+          page.should have_selector "p", text: @page.body
+        end
       end
     end
 
