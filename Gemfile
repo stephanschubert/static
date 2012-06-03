@@ -11,7 +11,7 @@ gem 'bson_ext'
 gem 'haml'
 gem 'sass'
 gem 'sass-rails'
-gem 'jquery-rails'
+gem 'jquery-rails', git: 'git://github.com/rails/jquery-rails.git'
 
 gem 'RedCloth',     require: 'redcloth'
 gem 'formtastic'
