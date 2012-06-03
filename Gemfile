@@ -1,25 +1,21 @@
 source "http://rubygems.org"
 gemspec
 
-gem 'sprockets', '>= 2.0.0'
-gem 'rack', '~> 1.3.0'
+gem 'sprockets'
+gem 'rack'
+gem 'rails'
 
-# TODO Remove later
-gem "journey", :git => "git://github.com/tenderlove/journey.git"
-gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'mongoid'
+gem 'bson_ext'
 
-gem 'mongoid',   :git => 'git://github.com/mongoid/mongoid.git'
-gem 'bson_ext', '>= 1.3.0'
+gem 'haml'
+gem 'sass'
+gem 'sass-rails'
+gem 'jquery-rails'
 
-gem 'jquery-rails', :git => 'git://github.com/rails/jquery-rails.git'
-gem 'haml', :git => 'git://github.com/nex3/haml.git'
-gem 'haml-rails'
-
-gem 'sass', :git => 'git://github.com/nex3/sass.git'
-gem 'sass-rails', :git => 'git://github.com/rails/sass-rails.git'
-
-gem 'RedCloth', :require => 'redcloth'
+gem 'RedCloth',     require: 'redcloth'
 gem 'formtastic'
+
 gem 'thin'
 
 # FIXME
