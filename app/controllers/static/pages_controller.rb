@@ -20,7 +20,7 @@ module Static
     end
 
     def create
-      @page = Page.new incoming_changes
+      @page = Page.new(incoming_changes)
 
       if @page.save
         flash[:notice] = t("backend.messages.page_created")
@@ -31,7 +31,7 @@ module Static
     end
 
     def update
-      if @page.update_attributes incoming_changes
+      if @page.update_attributes(incoming_changes)
         flash[:notice] = t("backend.messages.page_updated")
         respond_with :backend, @page
       else
@@ -45,15 +45,14 @@ module Static
       redirect_to backend_pages_path
     end
 
-    private # ----------------------------------------------
+    private
 
     def incoming_changes
       params[:page]
     end
 
     def find_page
-      @page = Page.find params[:id]
+      @page = Page.find(params[:id])
     end
-
   end
 end

@@ -2,7 +2,7 @@ require 'acceptance/acceptance_helper'
 
 feature "Manage pages" do
 
-  context "Not logged in" do # -----------------------------
+  context "Not logged in" do
 
     scenario "No backend access" do
       visit backend_pages_path
@@ -11,7 +11,7 @@ feature "Manage pages" do
 
   end
 
-  context "Logged in" do # ---------------------------------
+  context "Logged in" do
 
     background do
       @page = F("static/page", title: "A page", body: "The body.")
@@ -20,7 +20,7 @@ feature "Manage pages" do
       basic_auth "baktinet", "6bd5069e47fc68f2"
     end
 
-    scenario "View dashboard" do # -------------------------
+    scenario "View dashboard" do
       visit backend_pages_path
 
       within ".pages" do
@@ -30,7 +30,7 @@ feature "Manage pages" do
       end
     end
 
-    scenario "View page" do # ------------------------------
+    scenario "View page" do
       visit backend_page_path(@page)
 
       within ".page" do
@@ -42,7 +42,7 @@ feature "Manage pages" do
       end
     end
 
-    scenario "Create page" do # ----------------------------
+    scenario "Create page" do
       visit backend_pages_path
       click_on t("backend.actions.create_page")
 
@@ -55,7 +55,7 @@ feature "Manage pages" do
       page.should have_content t("backend.messages.page_created")
     end
 
-    scenario "Edit page" do # ------------------------------
+    scenario "Edit page" do
       visit edit_backend_page_path(@page)
 
       within "form[id^='edit_page']" do
@@ -66,15 +66,19 @@ feature "Manage pages" do
       page.should have_content("backend.messages.page_updated")
     end
 
-    scenario "Delete page", js: true do # ------------------
+    scenario "Delete page", js: true do
       visit backend_pages_path
 
       path = backend_page_path(@page)
+
+      # page.driver.accept_js_confirms!
+      # page.driver.accept_js_prompts!
+      #binding.pry
       find("a[data-method='delete'][href$='#{path}']").click
+      #page.driver.accept_js_confirms!
+      #page.driver.accept_js_prompts!
 
       page.should have_content t("backend.messages.page_deleted")
     end
-
   end
-
 end

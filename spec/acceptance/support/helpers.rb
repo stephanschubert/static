@@ -1,9 +1,9 @@
 module HelperMethods
 
-  # Find and click the 'submit' button. Should be used +within+
-  # a form's scope.
+  # Find and click the 'submit' button.
+  # Should be used +within+ a form's scope.
   def submit
-    find("*[type='submit']").click
+    find("[type='submit']").click
   end
 
   # Reload the current page
@@ -15,7 +15,6 @@ module HelperMethods
   def t(*args)
     I18n.t(*args)
   end
-
 end
 
-RSpec.configuration.include HelperMethods, :type => :request
+RSpec.configuration.include HelperMethods, :type => :feature

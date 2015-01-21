@@ -1,4 +1,5 @@
 /**
- *= require_tree ./core
+ *= require jquery
+ *= require jquery_ujs
  *= require_self
  */
