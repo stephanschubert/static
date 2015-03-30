@@ -6,7 +6,7 @@ feature "Manage pages" do
 
     scenario "No backend access" do
       visit backend_pages_path
-      page.should have_content "Access denied"
+      expect(page).to have_content "Access denied"
     end
 
   end
@@ -26,7 +26,7 @@ feature "Manage pages" do
       within ".pages" do
         path = edit_backend_page_path(@page)
         text = @page.title
-        page.should have_selector "a[href$='#{path}']", text: text
+        expect(page).to have_selector "a[href$='#{path}']", text: text
       end
     end
 
@@ -34,10 +34,10 @@ feature "Manage pages" do
       visit backend_page_path(@page)
 
       within ".page" do
-        page.should have_selector ".page-title", text: @page.title
+        expect(page).to have_selector ".page-title", text: @page.title
 
         within ".page-body" do
-          page.should have_selector "p", text: @page.body
+          expect(page).to have_selector "p", text: @page.body
         end
       end
     end
@@ -52,7 +52,7 @@ feature "Manage pages" do
         submit
       end
 
-      page.should have_content t("backend.messages.page_created")
+      expect(page).to have_content t("backend.messages.page_created")
     end
 
     scenario "Edit page" do
@@ -63,7 +63,7 @@ feature "Manage pages" do
         submit
       end
 
-      page.should have_content("backend.messages.page_updated")
+      expect(page).to have_content("backend.messages.page_updated")
     end
 
     scenario "Delete page", js: true do
@@ -78,7 +78,7 @@ feature "Manage pages" do
       #page.driver.accept_js_confirms!
       #page.driver.accept_js_prompts!
 
-      page.should have_content t("backend.messages.page_deleted")
+      expect(page).to have_content t("backend.messages.page_deleted")
     end
   end
 end

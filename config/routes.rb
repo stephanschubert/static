@@ -6,5 +6,4 @@ Static::Engine.routes.draw do
   end
 
   get "*slug" => "public#slug"
-
 end
