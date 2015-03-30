@@ -29,7 +29,7 @@ group :test do
 
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'rubysl-test-unit'
+  gem 'test-unit', '~> 3.0'
   gem 'mongoid-rspec'
   gem 'capybara'
   gem 'capybara-webkit'
